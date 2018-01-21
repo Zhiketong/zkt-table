@@ -1,3 +1,0 @@
-<template>
-  <tbody></tbody>
-</template>

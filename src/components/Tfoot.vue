@@ -1,3 +1,0 @@
-<template>
-  <tfoot></tfoot>
-</template>

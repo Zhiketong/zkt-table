@@ -2,7 +2,12 @@
   <table class="table">
     <thead>
       <tr>
-        <th v-for="(column, index) in columns" :key="index">{{column.header}}</th>
+        <Th
+          v-for="(column, index) in columns"
+          :key="index"
+          v-bind="{
+            header:column.header
+          }" />
       </tr>
     </thead>
     <tbody>
@@ -25,10 +30,12 @@
 
 <script>
   import Td from './Td.vue'
+  import Th from './Th.vue'
   export default {
     name: 'Table',
     components: {
-      Td
+      Td,
+      Th
     },
     props: {
       data: {
