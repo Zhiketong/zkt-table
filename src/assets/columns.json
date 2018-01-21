@@ -1,5 +1,10 @@
 [{
-  "field": "name"
+  "field": "name",
+  "header": "姓名"
 }, {
-  "field": "tel"
+  "field": "tel",
+  "header": "电话",
+  "style": {
+    "color": "#0f0"
+  }
   }]

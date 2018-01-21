@@ -1,6 +1,9 @@
 <template>
   <table class="table">
     <thead>
+      <tr>
+        <th v-for="(column, index) in columns" :key="index">{{column.header}}</th>
+      </tr>
     </thead>
     <tbody>
       <tr
