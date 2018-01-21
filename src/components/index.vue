@@ -15,8 +15,9 @@
         v-for="(row,index) in data"
         :key="index"
         :ref="'row'+index">
-        <Td
+        <component
           v-for="(column,index) in columns"
+          :is="column.component||'Td'"
           :key="index"
           v-bind="column"
           :data="row"
@@ -50,6 +51,11 @@
           return []
         }
       }
+    },
+    register (Component) {
+      var components = this.components
+      if (components[Component.name]) return
+      components[Component.name] = Component
     }
   }
 </script>

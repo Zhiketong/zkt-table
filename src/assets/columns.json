@@ -7,4 +7,7 @@
   "style": {
     "color": "#0f0"
   }
+}, {
+  "field": "hobby",
+  "header": "爱好"
 }]
