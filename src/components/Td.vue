@@ -1,5 +1,5 @@
 <template>
-  <td>{{data[column.name]}}</td>
+  <td>{{data[field]}}</td>
 </template>
 
 <script>
@@ -12,12 +12,9 @@
           return {}
         }
       },
-      column: {
-        type: Object,
-        default () {
-          return {
-          }
-        }
+      field: {
+        type: String,
+        default: ''
       }
     }
   }

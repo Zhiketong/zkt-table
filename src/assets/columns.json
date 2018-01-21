@@ -1,5 +1,5 @@
 [{
-  "name": "name"
+  "field": "name"
 }, {
-  "name": "tel"
+  "field": "tel"
   }]

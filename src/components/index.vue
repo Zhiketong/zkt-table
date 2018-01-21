@@ -10,8 +10,8 @@
         <Td
           v-for="(column,index) in columns"
           :key="index"
+          v-bind="column"
           :data="row"
-          :column="column"
           :ref="'cell'+column.name" />
       </tr>
     </tbody>
