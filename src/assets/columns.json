@@ -1,6 +1,7 @@
 [{
   "field": "name",
-  "header": "姓名"
+  "header": "姓名",
+  "sort": true
 }, {
   "field": "tel",
   "header": "电话",

@@ -6,8 +6,10 @@
           v-for="(column, index) in columns"
           :key="index"
           v-bind="{
-            header:column.header
-          }" />
+            header:column.header,
+            sort: column.sort
+          }"
+          @sort="_onSort" />
       </tr>
     </thead>
     <tbody>
@@ -50,6 +52,11 @@
         default () {
           return []
         }
+      }
+    },
+    methods: {
+      _onSort (dir) {
+        this.$emit('sort', dir)
       }
     },
     register (Component) {
