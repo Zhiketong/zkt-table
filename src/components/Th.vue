@@ -6,10 +6,12 @@
 </template>
 <script>
   import Sort from './Sort.vue'
+  import Search from './Search.vue'
   export default {
     name: 'Th',
     components: {
-      Sort
+      Sort,
+      Search
     },
     props: {
       header: {
