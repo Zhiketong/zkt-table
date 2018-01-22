@@ -29,7 +29,7 @@
     },
     methods: {
       _onSort (dir) {
-        this.$emit('sort', dir)
+        this.$emit('sort', {field: this.field, dir: dir})
       }
     }
   }
