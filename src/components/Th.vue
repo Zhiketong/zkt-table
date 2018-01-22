@@ -1,7 +1,7 @@
 <template>
   <th>
     {{header}}
-    <Sort v-bind="$props" />
+    <Sort v-bind="$props" @sort="_onSort" />
   </th>
 </template>
 <script>
@@ -23,6 +23,11 @@
       sort: {
         type: Boolean,
         default: false
+      }
+    },
+    methods: {
+      _onSort (dir) {
+        this.$emit('sort', dir)
       }
     }
   }

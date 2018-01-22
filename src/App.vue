@@ -5,6 +5,7 @@
         :data="data"
         :columns="columns"
         ref="table"
+        @sort="_onSort"
         class="table-bordered" />
     </div>
   </div>
@@ -21,6 +22,11 @@ export default {
     return {
       data: require('./assets/data.json'),
       columns: require('./assets/columns.json')
+    }
+  },
+  methods: {
+    _onSort () {
+      console.log('onsort')
     }
   },
   mounted () {
