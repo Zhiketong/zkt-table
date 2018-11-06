@@ -6,6 +6,7 @@
         :columns="columns"
         ref="table"
         @sort="_onSort"
+        @search="_onSearch"
         class="table-bordered" />
     </div>
   </div>
@@ -25,8 +26,11 @@ export default {
     }
   },
   methods: {
-    _onSort () {
-      console.log('onsort')
+    _onSort (data) {
+      console.log('onsort', data)
+    },
+    _onSearch (data) {
+      console.log('onSearch', data)
     }
   },
   mounted () {

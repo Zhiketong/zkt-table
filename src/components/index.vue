@@ -4,12 +4,13 @@
       <tr>
         <Th
           v-for="(column, index) in columns"
+          v-on="$listeners"
           :key="index"
-          v-bind="{
-            header:column.header,
-            sort: column.sort
-          }"
-          @sort="_onSort" />
+          :header="column.header"
+          :sortable="column.sortable"
+          :searchable="column.searchable"
+          :name="column.name"
+          />
       </tr>
     </thead>
     <tbody>
@@ -17,13 +18,15 @@
         v-for="(row,index) in data"
         :key="index"
         :ref="'row'+index">
-        <component
-          v-for="(column,index) in columns"
-          :is="column.component||'Td'"
-          :key="index"
-          v-bind="column"
-          :data="row"
-          :ref="'cell'+column.name" />
+        <td v-for="(column,index) in columns" :key="index">
+          <span v-bind="column" v-html="row[column.name]" v-if="!column.component"></span>
+          <component
+            v-bind="column"
+            v-if="column.component"
+            :is="column.component"
+            :value="row"
+            :ref="'cell'+column.name" />
+        </td>
       </tr>
     </tbody>
     <tfoot>
@@ -32,12 +35,10 @@
 </template>
 
 <script>
-  import Td from './Td.vue'
   import Th from './Th.vue'
   export default {
     name: 'Table',
     components: {
-      Td,
       Th
     },
     props: {
@@ -53,16 +54,6 @@
           return []
         }
       }
-    },
-    methods: {
-      _onSort (dir) {
-        this.$emit('sort', dir)
-      }
-    },
-    register (Component) {
-      var components = this.components
-      if (components[Component.name]) return
-      components[Component.name] = Component
     }
   }
 </script>

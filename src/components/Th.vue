@@ -1,7 +1,9 @@
 <template>
-  <th>
+  <th class="table-header">
     {{header}}
-    <Sort v-bind="$props" @sort="_onSort" />
+    <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
+    <i class="glyphicon glyphicon-search" v-if="searchable" @click="showPopover=!showPopover"></i>
+    <Search v-if="searchable&&showPopover"  v-bind="$props" @search="_onSearch" />
   </th>
 </template>
 <script>
@@ -18,19 +20,37 @@
         type: String,
         default: ''
       },
-      field: {
+      name: {
         type: String,
         default: ''
       },
-      sort: {
+      sortable: {
+        type: Boolean,
+        default: false
+      },
+      searchable: {
         type: Boolean,
         default: false
       }
     },
+    data () {
+      return {
+        showPopover: false
+      }
+    },
     methods: {
       _onSort (dir) {
-        this.$emit('sort', {field: this.field, dir: dir})
+        this.$emit('sort', {name: this.name, dir: dir})
+      },
+      _onSearch (keyword) {
+        this.showPopover = false
+        this.$emit('search', {name: this.name, keyword: keyword})
       }
     }
   }
 </script>
+<style>
+  .table-header {
+    position: relative;
+  }
+</style>

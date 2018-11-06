@@ -1,14 +1,15 @@
 [{
-  "field": "name",
+  "name": "name",
   "header": "姓名",
-  "sort": true
+  "sortable": true
 }, {
-  "field": "tel",
+  "name": "tel",
   "header": "电话",
+  "searchable": true,
   "style": {
     "color": "#0f0"
   }
 }, {
-  "field": "hobby",
+  "name": "hobby",
   "header": "爱好"
 }]

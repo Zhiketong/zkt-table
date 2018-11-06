@@ -1,8 +1,8 @@
 <template>
   <i class="glyphicon" :class="{
-    'glyphicon-sort': sort&&dir=='',
-    'glyphicon-sort-by-attributes-alt': sort&&dir=='desc',
-    'glyphicon-sort-by-attributes': sort&&dir=='asc',
+    'glyphicon-sort': dir=='',
+    'glyphicon-sort-by-attributes-alt': dir=='desc',
+    'glyphicon-sort-by-attributes': dir=='asc',
     }"
     @click="setDir">
   </i>
@@ -14,10 +14,6 @@
       field: {
         type: String,
         default: ''
-      },
-      sort: {
-        type: Boolean,
-        default: false
       }
     },
     data () {
