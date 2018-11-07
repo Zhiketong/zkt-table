@@ -11,5 +11,6 @@
   }
 }, {
   "name": "hobby",
-  "header": "爱好"
+  "header": "爱好",
+  "filterable": true
 }]

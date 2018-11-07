@@ -5,11 +5,8 @@
         <Th
           v-for="(column, index) in columns"
           v-on="$listeners"
+          v-bind="column"
           :key="index"
-          :header="column.header"
-          :sortable="column.sortable"
-          :searchable="column.searchable"
-          :name="column.name"
           />
       </tr>
     </thead>

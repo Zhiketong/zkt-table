@@ -4,16 +4,20 @@
     <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
     <i class="glyphicon glyphicon-search" v-if="searchable" @click="showPopover=!showPopover"></i>
     <Search v-if="searchable&&showPopover"  v-bind="$props" @search="_onSearch" />
+    <i v-if="filterable" class="glyphicon glyphicon-filter"></i>
+    <Select v-if="filterable&&showFilter"></Select>
   </th>
 </template>
 <script>
   import Sort from './Sort.vue'
   import Search from './Search.vue'
+  import Filter from './Filter.vue'
   export default {
     name: 'Th',
     components: {
       Sort,
-      Search
+      Search,
+      Select: Filter
     },
     props: {
       header: {
@@ -23,6 +27,10 @@
       name: {
         type: String,
         default: ''
+      },
+      filterable: {
+        type: Boolean,
+        default: false
       },
       sortable: {
         type: Boolean,
@@ -35,7 +43,8 @@
     },
     data () {
       return {
-        showPopover: false
+        showPopover: false,
+        showFilter: false
       }
     },
     methods: {
