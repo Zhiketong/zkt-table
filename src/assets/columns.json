@@ -12,5 +12,11 @@
 }, {
   "name": "hobby",
   "header": "爱好",
-  "filterable": true
+  "filterable": true,
+  "options": [
+    {
+      "label": "钢琴、书法、唱歌",
+      "value": "钢琴、书法、唱歌"
+    }
+  ]
 }]

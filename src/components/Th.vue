@@ -4,8 +4,8 @@
     <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
     <i class="glyphicon glyphicon-search" v-if="searchable" @click="showPopover=!showPopover"></i>
     <Search v-if="searchable&&showPopover"  v-bind="$props" @search="_onSearch" />
-    <i v-if="filterable" class="glyphicon glyphicon-filter"></i>
-    <Select v-if="filterable&&showFilter"></Select>
+    <i v-if="filterable" class="glyphicon glyphicon-filter" @click="showFilter=!showFilter"></i>
+    <Select v-if="filterable&&showFilter" :options="options" @change="_onFilter"></Select>
   </th>
 </template>
 <script>
@@ -39,6 +39,12 @@
       searchable: {
         type: Boolean,
         default: false
+      },
+      options: {
+        type: Array,
+        default () {
+          return []
+        }
       }
     },
     data () {
@@ -54,6 +60,10 @@
       _onSearch (keyword) {
         this.showPopover = false
         this.$emit('search', {name: this.name, keyword: keyword})
+      },
+      _onFilter (value) {
+        this.showFilter = false
+        this.$emit('filter', {name: this.name, value: value})
       }
     }
   }

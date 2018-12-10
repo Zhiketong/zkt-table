@@ -7,6 +7,7 @@
         ref="table"
         @sort="_onSort"
         @search="_onSearch"
+        @filter="_onFilter"
         class="table-bordered" />
     </div>
   </div>
@@ -31,6 +32,9 @@ export default {
     },
     _onSearch (data) {
       console.log('onSearch', data)
+    },
+    _onFilter (data) {
+      console.log('onFIlter', data)
     }
   },
   mounted () {
