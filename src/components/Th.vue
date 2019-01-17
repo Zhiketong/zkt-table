@@ -80,4 +80,7 @@
   .table-header {
     position: relative;
   }
+  .table-header > i{
+    color: #337ab7
+  }
 </style>
