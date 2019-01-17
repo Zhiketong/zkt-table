@@ -1,7 +1,7 @@
 {
   "name": "vue-modal-bootstrap",
   "description": "vue modal plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "MillerRen <ren12345@126.com>",
   "license": "MIT",
   "private": true,
