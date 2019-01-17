@@ -4,10 +4,12 @@
       <Table
         :data="data"
         :columns="columns"
+        :actions="actions"
         ref="table"
         @sort="_onSort"
         @search="_onSearch"
         @filter="_onFilter"
+        @edit="_onEdit"
         class="table-bordered" />
     </div>
   </div>
@@ -23,7 +25,11 @@ export default {
   data () {
     return {
       data: require('./assets/data.json'),
-      columns: require('./assets/columns.json')
+      columns: require('./assets/columns.json'),
+      actions: {
+        edit: '编辑',
+        delete: '删除'
+      }
     }
   },
   methods: {
@@ -35,6 +41,9 @@ export default {
     },
     _onFilter (data) {
       console.log('onFIlter', data)
+    },
+    _onEdit (data) {
+      console.log(data)
     }
   },
   mounted () {

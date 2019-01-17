@@ -8,6 +8,9 @@
           v-bind="column"
           :key="index"
           />
+          <th v-if="actions">
+            操作
+          </th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +26,15 @@
             :is="column.component"
             :value="row"
             :ref="'cell'+column.name" />
+        </td>
+        <td v-if="actions">
+            <button
+            type="button"
+            class="btn btn-xs btn-link"
+            v-for="(action, key) in actions"
+            @click="$emit(action.value||key, row)">
+            {{action.name||action}}
+          </button>
         </td>
       </tr>
     </tbody>
@@ -47,6 +59,11 @@
       },
       columns: {
         type: Array,
+        default () {
+          return []
+        }
+      },
+      actions: {
         default () {
           return []
         }
