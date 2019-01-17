@@ -1,14 +1,11 @@
 <template lang="html">
-  <div class="popover bottom popover-filter">
-    <div class="popover-content">
+  <div class="dropdown-menu th-filter well well-sm">
       <form class="popover-form"  @submit.prevent="onSubmit">
         <select class="form-control" v-model="value" @change="onChange">
           <option value="">请选择</option>
           <option v-for="option in options" :value="option.value">{{option.label}}</option>
         </select>
       </form>
-    </div>
-    <div class="arrow"></div>
   </div>
 </template>
 
@@ -37,11 +34,7 @@ export default {
 </script>
 
 <style lang="css">
-.popover-filter.popover {
+.th-filter {
   display: block;
-  top: 100%;
-  left: 25%;
-  margin-top: 0px;
-  width: 50%;
 }
 </style>

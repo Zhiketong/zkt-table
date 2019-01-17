@@ -1,11 +1,13 @@
 <template>
-  <div class="popover bottom popover-search">
-    <div class="popover-content">
+  <div class="dropdown-menu th-search well well-sm">
       <form class="popover-form"  @submit.prevent="onSubmit">
-        <input type="text" class="form-control input-sm" v-model="keyword">
+        <div class="input-group">
+          <input type="text" class="form-control input-sm" v-model="keyword">
+          <span class="input-group-btn">
+            <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-search"></i></button>
+          </span>
+        </div>
       </form>
-    </div>
-    <div class="arrow"></div>
   </div>
 </template>
 <script>
@@ -24,11 +26,7 @@
   }
 </script>
 <style>
-.popover-search.popover {
+.th-search {
   display: block;
-  top: 100%;
-  left: 25%;
-  margin-top: 0px;
-  width: 50%;
 }
 </style>
