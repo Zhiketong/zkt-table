@@ -3,17 +3,21 @@
     {{header}}
     <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
     <i class="glyphicon glyphicon-search" v-if="searchable" @click="showPopover=!showPopover"></i>
-    <Search v-if="searchable&&showPopover"  v-bind="$props" @search="_onSearch" />
-    <i v-if="filterable" class="glyphicon glyphicon-filter" @click="showFilter=!showFilter"></i>
+    <Search v-if="searchable&&showPopover"  v-bind="$props" v-on-clickaway="_onClickaway" @search="_onSearch"  />
+    <i v-if="filterable" class="glyphicon glyphicon-filter" v-on-clickaway="_onClickaway" @click="showFilter=!showFilter"></i>
     <Select v-if="filterable&&showFilter" :options="options" @change="_onFilter"></Select>
   </th>
 </template>
 <script>
+  import {directive as onClickaway} from 'vue-clickaway'
   import Sort from './Sort.vue'
   import Search from './Search.vue'
   import Filter from './Filter.vue'
   export default {
     name: 'Th',
+    directives: {
+      onClickaway
+    },
     components: {
       Sort,
       Search,
@@ -64,6 +68,10 @@
       _onFilter (value) {
         this.showFilter = false
         this.$emit('filter', {name: this.name, value: value})
+      },
+      _onClickaway () {
+        this.showFilter = false
+        this.showPopover = false
       }
     }
   }
