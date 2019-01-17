@@ -8,7 +8,7 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js',
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    libraryExport: 'default'
   },
   module: {
     rules: [
@@ -61,7 +61,7 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
-  module.exports.entry = './src/modal.js'
+  module.exports.entry = './src/export.js'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
