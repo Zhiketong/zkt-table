@@ -2,6 +2,14 @@
   <table class="table zkt-table">
     <thead class="zkt-table-head">
       <tr>
+        <th v-if="selectable">
+          <input
+          type="checkbox"
+          :checked="data.length==selectedItems.length"
+          v-model="selectedAll"
+          ref="selectAll"
+          @change="selectedItems=selectedAll?data.slice():[]">
+        </th>
         <Th
           v-for="(column, index) in columns"
           v-if="column.name"
@@ -16,6 +24,9 @@
         v-for="(row,index) in data"
         :key="index"
         :ref="'row'+index">
+        <td v-if="selectable">
+          <input type="checkbox" v-model="selectedItems" :value="row" @change="$emit('select', selectedItems)">
+        </td>
         <td v-for="(column,index) in columns" v-if="column.name" :key="index">
           <span v-bind="column" v-html="row[column.name]" v-if="!column.component"></span>
           <component
@@ -54,11 +65,28 @@
         default () {
           return []
         }
+      },
+      selectable: {
+        type: Boolean,
+        default: false
+      }
+    },
+    data () {
+      return {
+        selectedItems: [],
+        selectedAll: false
       }
     },
     methods: {
       _onAction (key, row) {
         this.$emit(key, row)
+      },
+      selectAll () {
+        if (this.selectedAll) {
+          this.selectedItems = []
+        } else {
+          this.selectedItems = this.data.slice()
+        }
       }
     }
   }
