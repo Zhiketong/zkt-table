@@ -4,7 +4,6 @@
       <Table
         :data="data"
         :columns="columns"
-        :actions="actions"
         ref="table"
         @sort="_onSort"
         @search="_onSearch"
@@ -25,11 +24,7 @@ export default {
   data () {
     return {
       data: require('./assets/data.json'),
-      columns: require('./assets/columns.json'),
-      actions: {
-        edit: '编辑',
-        delete: '删除'
-      }
+      columns: require('./assets/columns.json')
     }
   },
   methods: {
