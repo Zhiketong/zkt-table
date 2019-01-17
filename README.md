@@ -53,18 +53,24 @@ export default {
         "name": "hobby",
         "header": "爱好",
         "filterable": true,
+        "style": {
+          "width": "150px"
+        },
         "options": [
           {
             "label": "钢琴、书法、唱歌",
             "value": "钢琴、书法、唱歌"
           }
         ]
-      }],
-      actions: {
-        edit: '编辑',
-        delete: '删除'
-      }
-    }
+      }, {
+        "name": "actions",
+        "header": "操作",
+        "component": "Buttons",
+        "buttons": {
+          "edit": "编辑",
+          "delete": "删除"
+        }
+      }]
   },
   methods: {
     _onSort (data) {
