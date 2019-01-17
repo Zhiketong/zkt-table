@@ -8,7 +8,7 @@
           :checked="data.length==selectedItems.length"
           v-model="selectedAll"
           ref="selectAll"
-          @change="selectedItems=selectedAll?data.slice():[]">
+          @change="selectAll">
         </th>
         <Th
           v-for="(column, index) in columns"
@@ -83,10 +83,11 @@
       },
       selectAll () {
         if (this.selectedAll) {
-          this.selectedItems = []
-        } else {
           this.selectedItems = this.data.slice()
+        } else {
+          this.selectedItems = []
         }
+        this.$emit('select', this.selectedItems)
       }
     }
   }

@@ -4,11 +4,13 @@
       <Table
         :data="data"
         :columns="columns"
+        :selectable="true"
         ref="table"
         @sort="_onSort"
         @search="_onSearch"
         @filter="_onFilter"
         @edit="_onEdit"
+        @select="_onSelect"
         class="table-bordered" />
     </div>
   </div>
@@ -39,6 +41,9 @@ export default {
     },
     _onEdit (data) {
       console.log(data)
+    },
+    _onSelect (items) {
+      console.log(items)
     }
   },
   mounted () {
