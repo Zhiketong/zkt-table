@@ -1,10 +1,10 @@
 {
-  "name": "vue-modal-bootstrap",
-  "description": "vue modal plugin",
+  "name": "zkt-table",
+  "description": "直客通表格组件",
   "version": "1.1.0",
   "author": "MillerRen <ren12345@126.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "main": "./dist/build.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
