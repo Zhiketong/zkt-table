@@ -36,5 +36,6 @@ export default {
 <style lang="css">
 .th-filter {
   display: block;
+  margin-top: -1px;
 }
 </style>

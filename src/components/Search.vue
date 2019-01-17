@@ -28,5 +28,6 @@
 <style>
 .th-search {
   display: block;
+  margin-top: -1px;
 }
 </style>
