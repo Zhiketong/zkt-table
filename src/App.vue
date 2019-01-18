@@ -8,7 +8,6 @@
         ref="table"
         @sort="_onSort"
         @search="_onSearch"
-        @filter="_onFilter"
         @edit="_onEdit"
         @select="_onSelect"
         class="table-bordered" />
@@ -35,9 +34,6 @@ export default {
     },
     _onSearch (data) {
       console.log('onSearch', data)
-    },
-    _onFilter (data) {
-      console.log('onFIlter', data)
     },
     _onEdit (data) {
       console.log(data)
