@@ -4,11 +4,12 @@
     <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
     <i :class="{'glyphicon':true,'glyphicon-filter':filterable,'glyphicon-search':searchable}"
      @click="showDropdown=!showDropdown"></i>
+    <Tooltip v-if="query" :tip="query" @close:tooltip="query=''" />
     <Dropdown
       v-if="showDropdown"
       v-bind.sync="$props"
        v-on-clickaway="_onClickaway"
-       @submit="$emit('search', $event)"
+       @submit="_onSearch"
        />
   </th>
 </template>
@@ -16,6 +17,8 @@
   import {directive as onClickaway} from 'vue-clickaway'
   import Sort from './Sort.vue'
   import Dropdown from './Dropdown.vue'
+  import Tooltip from './Tooltip.vue'
+
   export default {
     name: 'Th',
     directives: {
@@ -23,7 +26,8 @@
     },
     components: {
       Sort,
-      Dropdown
+      Dropdown,
+      Tooltip
     },
     props: {
       header: {
@@ -62,6 +66,11 @@
     methods: {
       _onSort (dir) {
         this.$emit('sort', {name: this.name, dir: dir})
+      },
+      _onSearch (query) {
+        this.query = query
+        this.showDropdown = false
+        this.$emit('search', query)
       },
       _onClickaway () {
         this.showDropdown = false
