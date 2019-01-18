@@ -2,7 +2,8 @@
   <th class="table-header">
     {{header}}
     <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
-    <i class="glyphicon" :class="icon" v-if="icon" @click="showDropdown=!showDropdown"></i>
+    <i :class="{'glyphicon':true,'glyphicon-filter':filterable,'glyphicon-search':searchable}"
+     @click="showDropdown=!showDropdown"></i>
     <Dropdown
       v-if="showDropdown"
       v-bind.sync="$props"
@@ -56,11 +57,6 @@
       return {
         showDropdown: false,
         query: ''
-      }
-    },
-    computed: {
-      icon () {
-        return this.filterable ? 'glyphicon-filter': this.searchable ? 'glyphicon-search': ''
       }
     },
     methods: {
