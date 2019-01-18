@@ -2,17 +2,19 @@
   <th class="table-header">
     {{header}}
     <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
-    <i class="glyphicon glyphicon-search" v-if="searchable" @click="showPopover=!showPopover"></i>
-    <Search v-if="searchable&&showPopover"  v-bind="$props" v-on-clickaway="_onClickaway" @search="_onSearch"  />
-    <i v-if="filterable" class="glyphicon glyphicon-filter" v-on-clickaway="_onClickaway" @click="showFilter=!showFilter"></i>
-    <Select v-if="filterable&&showFilter" :options="options" @change="_onFilter"></Select>
+    <i class="glyphicon" :class="icon" v-if="icon" @click="showDropdown=!showDropdown"></i>
+    <Dropdown
+      v-if="showDropdown"
+      v-bind.sync="$props"
+       v-on-clickaway="_onClickaway"
+       @submit="$emit('search', $event)"
+       />
   </th>
 </template>
 <script>
   import {directive as onClickaway} from 'vue-clickaway'
   import Sort from './Sort.vue'
-  import Search from './Search.vue'
-  import Filter from './Filter.vue'
+  import Dropdown from './Dropdown.vue'
   export default {
     name: 'Th',
     directives: {
@@ -20,8 +22,7 @@
     },
     components: {
       Sort,
-      Search,
-      Select: Filter
+      Dropdown
     },
     props: {
       header: {
@@ -53,25 +54,21 @@
     },
     data () {
       return {
-        showPopover: false,
-        showFilter: false
+        showDropdown: false,
+        query: ''
+      }
+    },
+    computed: {
+      icon () {
+        return this.filterable ? 'glyphicon-filter': this.searchable ? 'glyphicon-search': ''
       }
     },
     methods: {
       _onSort (dir) {
         this.$emit('sort', {name: this.name, dir: dir})
       },
-      _onSearch (keyword) {
-        this.showPopover = false
-        this.$emit('search', {name: this.name, keyword: keyword})
-      },
-      _onFilter (value) {
-        this.showFilter = false
-        this.$emit('filter', {name: this.name, value: value})
-      },
       _onClickaway () {
-        this.showFilter = false
-        this.showPopover = false
+        this.showDropdown = false
       }
     }
   }
