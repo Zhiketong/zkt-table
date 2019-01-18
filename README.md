@@ -79,9 +79,6 @@ export default {
     _onSearch (data) {
       console.log('onSearch', data)
     },
-    _onFilter (data) {
-      console.log('onFIlter', data)
-    },
     _onEdit (data) {
       console.log(data)
     }
