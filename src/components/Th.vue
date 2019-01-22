@@ -14,7 +14,7 @@
   </th>
 </template>
 <script>
-  import {directive as onClickaway} from 'vue-clickaway'
+  import onClickaway from '../directives/clickaway'
   import Sort from './Sort.vue'
   import Dropdown from './Dropdown.vue'
   import Tooltip from './Tooltip.vue'
