@@ -4,7 +4,7 @@
     <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
     <i :class="{'glyphicon':true,'glyphicon-filter':filterable,'glyphicon-search':searchable}"
      @click="showDropdown=!showDropdown"></i>
-    <Tooltip v-if="query" :tip="query" @close:tooltip="$emit('search', '')&&(query='')" />
+    <Tooltip v-if="query" :tip="query" @close:tooltip="$emit('search', name, '')&&(query='')" />
     <Dropdown
       v-if="showDropdown"
       v-bind.sync="$props"
@@ -70,7 +70,7 @@
       _onSearch (query) {
         this.query = query
         this.showDropdown = false
-        this.$emit('search', query)
+        this.$emit('search', this.name, query)
       },
       _onClickaway () {
         this.showDropdown = false

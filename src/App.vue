@@ -32,8 +32,8 @@ export default {
     _onSort (data) {
       console.log('onsort', data)
     },
-    _onSearch (data) {
-      console.log('onSearch', data)
+    _onSearch (key, value) {
+      console.log('onSearch', key, value)
     },
     _onEdit (data) {
       console.log(data)
