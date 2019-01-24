@@ -28,12 +28,10 @@
           <input type="checkbox" v-model="selectedItems" :value="row" @change="$emit('select', selectedItems)">
         </td>
         <td v-for="(column,index) in columns" v-if="column.name" :key="index">
-          <span v-bind="column" v-html="row[column.name]" v-if="!column.component"></span>
           <component
             v-bind="column"
-            v-if="column.component"
             v-on="$listeners"
-            :is="column.component"
+            :is="component||column.component"
             :value="row"
             :ref="'cell'+column.name"
            />
@@ -48,10 +46,13 @@
 <script>
   import Th from './Th.vue'
   import Buttons from './Buttons.vue'
+  import Cell from './Cell.vue'
+
   export default {
     name: 'Table',
     components: {
       Th,
+      Cell,
       Buttons
     },
     props: {
@@ -75,7 +76,8 @@
     data () {
       return {
         selectedItems: [],
-        selectedAll: false
+        selectedAll: false,
+        component: 'Cell'
       }
     },
     methods: {

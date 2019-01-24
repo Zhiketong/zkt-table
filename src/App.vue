@@ -17,6 +17,8 @@
 
 <script>
 import Table from './components'
+import columns from './assets/columns'
+
 export default {
   name: 'app',
   components: {
@@ -25,7 +27,7 @@ export default {
   data () {
     return {
       data: require('./assets/data.json'),
-      columns: require('./assets/columns.json')
+      columns
     }
   },
   methods: {

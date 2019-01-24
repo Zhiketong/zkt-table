@@ -1,4 +1,4 @@
-[{
+export default [{
   "name": "name",
   "header": "姓名",
   "sortable": true
@@ -8,6 +8,9 @@
   "searchable": true,
   "style": {
     "color": "#0f0"
+  },
+  filter (name, row) {
+    return row[name].replace(/\*/g, '$')
   }
 }, {
   "name": "hobby",
