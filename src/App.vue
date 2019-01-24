@@ -26,7 +26,7 @@ export default {
   },
   data () {
     return {
-      data: require('./assets/data.json'),
+      data: [], //require('./assets/data.json'),
       columns
     }
   },

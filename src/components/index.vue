@@ -20,6 +20,9 @@
       </tr>
     </thead>
     <tbody>
+      <tr v-if="!data||!data.length">
+        <td class="text-center bg-warning" :colspan="this.selectable?columns.length+1:columns.length">啥也没有</td>
+      </tr>
       <tr
         v-for="(row,index) in data"
         :key="index"
