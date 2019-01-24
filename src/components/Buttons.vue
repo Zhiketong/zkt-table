@@ -4,7 +4,7 @@
       type="button"
       class="btn btn-xs btn-link"
       v-for="(action, key) in buttons"
-      @click="$emit('action', action.value||key, value)">
+      @click="$emit(action.value||key, value)">
       {{action.name||action}}
     </button>
   </div>

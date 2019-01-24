@@ -32,10 +32,11 @@
           <component
             v-bind="column"
             v-if="column.component"
+            v-on="$listeners"
             :is="column.component"
             :value="row"
             :ref="'cell'+column.name"
-            @action="_onAction" />
+           />
         </td>
       </tr>
     </tbody>
@@ -78,9 +79,6 @@
       }
     },
     methods: {
-      _onAction (key, row) {
-        this.$emit(key, row)
-      },
       selectAll () {
         if (this.selectedAll) {
           this.selectedItems = this.data.slice()
