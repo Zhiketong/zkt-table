@@ -31,7 +31,7 @@
           <component
             v-bind="column"
             v-on="$listeners"
-            :is="component||column.component"
+            :is="column.component||component"
             :value="row"
             :ref="'cell'+column.name"
            />
@@ -78,13 +78,16 @@
         type: Boolean,
         default: false
       },
+      component: {
+        type: String,
+        default: 'Cell'
+      },
       loading: {}
     },
     data () {
       return {
         selectedItems: [],
-        selectedAll: false,
-        component: 'Cell'
+        selectedAll: false
       }
     },
     methods: {
