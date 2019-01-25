@@ -1,7 +1,7 @@
 {
   "name": "zkt-table",
   "description": "直客通表格组件",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "author": "MillerRen <ren12345@126.com>",
   "license": "MIT",
   "private": false,
