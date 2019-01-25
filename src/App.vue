@@ -5,6 +5,7 @@
         :data="data"
         :columns="columns"
         :selectable="true"
+        :loading="loading"
         ref="table"
         @sort="_onSort"
         @search="_onSearch"
@@ -18,6 +19,7 @@
 <script>
 import Table from './components'
 import columns from './assets/columns'
+import data from './assets/data'
 
 export default {
   name: 'app',
@@ -27,7 +29,8 @@ export default {
   data () {
     return {
       data: [], //require('./assets/data.json'),
-      columns
+      columns,
+      loading: false
     }
   },
   methods: {
@@ -46,6 +49,11 @@ export default {
   },
   mounted () {
     console.log(this.$refs.table)
+    this.loading = true
+    setTimeout(() => {
+        this.loading = false
+        this.data = data
+      }, 3000)
   }
 }
 </script>
