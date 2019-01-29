@@ -50,7 +50,7 @@
         type: Boolean,
         default: false
       },
-      searchInitData: {
+      searchQuery: {
         type: String,
         default: ''
       },
@@ -64,7 +64,7 @@
     data () {
       return {
         showDropdown: false,
-        query: this.searchInitData
+        query: this.searchQuery
       }
     },
     methods: {

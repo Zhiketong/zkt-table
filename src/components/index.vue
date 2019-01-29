@@ -16,6 +16,7 @@
           v-on="$listeners"
           v-bind="column"
           :key="index"
+          :searchQuery="searchParams[column.name]"
           />
       </tr>
     </thead>
@@ -77,6 +78,12 @@
       selectable: {
         type: Boolean,
         default: false
+      },
+      searchParams: {
+        type: Object,
+        default () {
+          return {}
+        }
       },
       component: {
         type: String,
