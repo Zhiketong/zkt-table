@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="zkt-table-cell">
-    {{filter(name, value)}}
+    {{val}}
   </div>
 </template>
 
@@ -18,11 +18,28 @@ export default {
       type: String,
       default: ''
     },
+    filters: {
+      type: String
+    },
     filter: {
       type: Function,
-      default (name, value) {
-        return value[name]
+      default (value) {
+        return value
       }
+    }
+  },
+  computed: {
+    val () {
+      var r = this.value[this.name]
+      if (this.filters) {
+        this.$options.filters
+        this.filters.split('|').forEach((item) => {
+          r = this.$options.filters[item](r, this.value)
+        })
+      } else if (this.filter) {
+        r = this.filter(r, this.value)
+      }
+      return r
     }
   }
 }

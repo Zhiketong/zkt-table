@@ -1,7 +1,8 @@
 export default [{
   "name": "name",
   "header": "姓名",
-  "sortable": true
+  "sortable": true,
+  "filters": "replace|hello"
 }, {
   "name": "tel",
   "header": "电话",
@@ -9,8 +10,8 @@ export default [{
   "style": {
     "color": "#0f0"
   },
-  filter (name, row) {
-    return row[name].replace(/\*/g, '$')
+  filter (value, row) {
+    return value.replace(/\*/g, '$')
   }
 }, {
   "name": "hobby",
