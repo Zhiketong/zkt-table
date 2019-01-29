@@ -6,6 +6,7 @@
         :columns="columns"
         :selectable="true"
         :loading="loading"
+        :searchParams="params"
         ref="table"
         @sort="_onSort"
         @search="_onSearch"
@@ -30,7 +31,10 @@ export default {
     return {
       data: [], //require('./assets/data.json'),
       columns,
-      loading: false
+      loading: false,
+      params: {
+        tel: '156$$$$$1987'
+      }
     }
   },
   methods: {
