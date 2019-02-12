@@ -30,8 +30,17 @@ export default [{
   "name": "actions",
   "header": "操作",
   "component": "Buttons",
-  "buttons": {
-    "edit": "编辑",
-    "delete": "删除"
-  }
+  "buttons": [
+      {
+        name: '编辑',
+        value: 'edit',
+        visible (row) {
+          return row.tel === '183*****6678'
+        }
+      },
+      {
+        name: '删除',
+        value: 'delete'
+      }
+  ]
 }]
