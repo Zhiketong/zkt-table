@@ -32,7 +32,6 @@ export default {
     val () {
       var r = this.value[this.name]
       if (this.filters) {
-        this.$options.filters
         this.filters.split('|').forEach((item) => {
           r = this.$options.filters[item](r, this.value)
         })
