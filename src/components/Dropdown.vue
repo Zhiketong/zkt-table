@@ -4,14 +4,16 @@
         <div class="form-group" v-if="filterable">
           <select class="form-control" v-model="value" @change="submit">
             <option value="">请选择</option>
-            <option v-for="option in options" :value="option.value">{{option.label}}</option>
+            <option v-for="(option, key) in options" :value="option">{{option.label||option}}</option>
           </select>
         </div>
         <div class="form-group" v-if="searchable">
           <div class="input-group">
             <input type="text" class="form-control input-sm" autofocus="true" v-model="value">
             <span class="input-group-btn">
-              <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-search"></i></button>
+              <button class="btn btn-default btn-sm">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
             </span>
           </div>
         </div>
@@ -31,7 +33,6 @@
         default: false
       },
       options: {
-        type: Array,
         default () {
           return []
         }
@@ -44,7 +45,7 @@
     },
     methods: {
       submit () {
-        this.$emit('submit', this.value)
+        this.$emit('submit', this.value.value||this.value, this.value.label||this.value)
       }
     }
   }

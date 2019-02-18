@@ -55,7 +55,6 @@
         default: ''
       },
       options: {
-        type: Array,
         default () {
           return []
         }
@@ -69,7 +68,7 @@
     },
     methods: {
       _onSort (dir) {
-        this.$emit('sort', {name: this.name, dir: dir})
+        this.$emit('sort',this.name, dir)
       },
       _onSearch (query) {
         this.query = query

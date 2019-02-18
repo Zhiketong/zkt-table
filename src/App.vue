@@ -38,8 +38,8 @@ export default {
     }
   },
   methods: {
-    _onSort (data) {
-      console.log('onsort', data)
+    _onSort (key, value) {
+      console.log('onsort', key, value)
     },
     _onSearch (key, value) {
       console.log('onSearch', key, value)

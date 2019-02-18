@@ -20,12 +20,9 @@ export default [{
   "style": {
     "width": "150px"
   },
-  "options": [
-    {
-      "label": "钢琴、书法、唱歌",
-      "value": "钢琴、书法、唱歌"
-    }
-  ]
+  "options":{
+    "key1": "钢琴"
+  }
 }, {
   "name": "actions",
   "header": "操作",
