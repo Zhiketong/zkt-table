@@ -2,7 +2,7 @@
   <table class="table zkt-table">
     <thead class="zkt-table-head">
       <tr>
-        <th v-if="selectable">
+        <th v-if="selectable" width="30">
           <input
           type="checkbox"
           :checked="data.length==selectedItems.length"
