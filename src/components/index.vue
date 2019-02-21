@@ -114,4 +114,8 @@
   .zkt-table-head tr {
     background-color: #f2f2f2;
   }
+  .zkt-table-head th {
+    vertical-align: top;
+    font-weight: normal;
+  }
 </style>
