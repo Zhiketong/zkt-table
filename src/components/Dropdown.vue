@@ -9,7 +9,7 @@
         </div>
         <div class="form-group" v-if="searchable">
           <div class="input-group">
-            <input type="text" class="form-control input-sm" autofocus="true" v-model="value">
+            <input type="text" class="form-control input-sm" v-focus v-model="value">
             <span class="input-group-btn">
               <button class="btn btn-default btn-sm">
                 <i class="glyphicon glyphicon-search"></i>
@@ -23,6 +23,14 @@
 <script>
   export default {
     name: 'Dropdown',
+    directives: {
+      focus: {
+        // 自动获取焦点
+        inserted (el) {
+          el.focus()
+        }
+      }
+    },
     props: {
       filterable: {
         type: Boolean,
