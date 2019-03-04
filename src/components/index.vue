@@ -5,7 +5,6 @@
         <th v-if="selectable" width="30">
           <input
           type="checkbox"
-          :checked="data.length==selectedItems.length"
           v-model="selectedAll"
           ref="selectAll"
           @change="selectAll">
