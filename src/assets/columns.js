@@ -37,6 +37,7 @@ export default [{
       },
       {
         name: '删除',
+        class: 'fa fa-link',
         value: 'delete'
       }
   ]
