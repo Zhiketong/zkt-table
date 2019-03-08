@@ -36,7 +36,8 @@ export default [{
         }
       },
       {
-        name: '删除',
+        name: ' ',
+        class: 'glyphicon glyphicon-plus',
         value: 'delete'
       }
   ]
