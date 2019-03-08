@@ -36,8 +36,8 @@ export default [{
         }
       },
       {
-        name: '删除',
-        class: 'fa fa-link',
+        name: ' ',
+        class: 'glyphicon glyphicon-plus',
         value: 'delete'
       }
   ]
