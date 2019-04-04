@@ -79,7 +79,7 @@
        * 对 select 是 option的索引
        */
       _onSearch (query) {
-        this.query = this.options[query]
+        this.query = this.options[query] || query
         this.showDropdown = false
         this.$emit('search', this.name, Array.isArray(this.options) && (this.query && this.query.value || this.query) || query)
       },
