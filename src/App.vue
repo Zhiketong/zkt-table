@@ -33,7 +33,8 @@ export default {
       columns,
       loading: false,
       params: {
-        tel: '156$$$$$1987'
+        tel: '156$$$$$1987',
+        hobby: '123'
       }
     }
   },

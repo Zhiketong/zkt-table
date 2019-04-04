@@ -4,7 +4,7 @@
     <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
     <i :class="{'glyphicon':true,'glyphicon-filter':filterable,'glyphicon-search':searchable}"
      @click="showDropdown=!showDropdown"></i>
-    <Tooltip v-if="query" :tip="query" @close:tooltip="$emit('search', name, '')&&(query='')" />
+    <Tooltip v-if="query" :tip="query.label||query" @close:tooltip="$emit('search', name, '')&&(query='')" />
     <Dropdown
       v-if="showDropdown"
       v-bind.sync="$props"
@@ -66,14 +66,22 @@
         query: this.searchQuery
       }
     },
+    created () {
+      this.query = Array.isArray(this.options) && this.options.find(item => item.value === this.searchQuery || item === this.searchQuery) || this.options[this.searchQuery] || this.searchQuery
+    },
     methods: {
       _onSort (dir) {
         this.$emit('sort',this.name, dir)
       },
+      /**
+       * query
+       * 对 input 是 输入值
+       * 对 select 是 option的索引
+       */
       _onSearch (query) {
-        this.query = query
+        this.query = this.options[query]
         this.showDropdown = false
-        this.$emit('search', this.name, query)
+        this.$emit('search', this.name, Array.isArray(this.options) && (this.query && this.query.value || this.query) || query)
       },
       _onClickaway () {
         this.showDropdown = false

@@ -20,9 +20,23 @@ export default [{
   "style": {
     "width": "150px"
   },
-  "options":{
-    "key1": "钢琴"
-  }
+  // "options":{
+  //   "key1": "钢琴",
+  //   "key2": "二胡",
+  // }
+  "options":[
+    '123', '345'
+  ]
+  // "options":[
+  //   {
+  //     label: 'lable1',
+  //     value: '1'
+  //   },
+  //   {
+  //     label: 'lable2',
+  //     value: '2'
+  //   }
+  // ]
 }, {
   "name": "actions",
   "header": "操作",
