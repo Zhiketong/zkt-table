@@ -16,6 +16,7 @@
           v-bind="column"
           :key="index"
           :searchQuery="searchParams[column.name]"
+          @search="onSearch"
           />
       </tr>
     </thead>
@@ -104,6 +105,10 @@
           this.selectedItems = []
         }
         this.$emit('select', this.selectedItems)
+      },
+      onSearch (key, val) {
+        this.searchParams[key] = val
+        this.$forceUpdate()
       }
     }
   }
