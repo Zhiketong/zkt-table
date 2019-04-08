@@ -1,18 +1,23 @@
 <template>
   <div id="app" class="container">
     <div class="panel panel-default">
-      <Table
-        :data="data"
-        :columns="columns"
-        :selectable="true"
-        :loading="loading"
-        :searchParams="params"
-        ref="table"
-        @sort="_onSort"
-        @search="_onSearch"
-        @edit="_onEdit"
-        @select="_onSelect"
-        class="table-bordered" />
+      <div class="panel-heading">
+        <button class="btn btn-default" @click="params = {}">清除参数</button>
+      </div>
+      <div class="panel-body">
+        <Table
+          :data="data"
+          :columns="columns"
+          :selectable="true"
+          :loading="loading"
+          :searchParams="params"
+          ref="table"
+          @sort="_onSort"
+          @search="_onSearch"
+          @edit="_onEdit"
+          @select="_onSelect"
+          class="table-bordered" />
+      </div>
     </div>
   </div>
 </template>
@@ -34,7 +39,7 @@ export default {
       loading: false,
       params: {
         tel: '156$$$$$1987',
-        hobby: '123'
+        hobby: '234'
       }
     }
   },
@@ -45,6 +50,7 @@ export default {
     _onSearch (key, value) {
       console.log('onSearch', key, value)
     },
+
     _onEdit (data) {
       console.log(data)
     },
