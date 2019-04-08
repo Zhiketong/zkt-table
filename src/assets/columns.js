@@ -45,14 +45,19 @@ export default [{
       {
         name: '编辑',
         value: 'edit',
+        class: 'btn-primary',
         visible (row) {
           return row.tel === '183*****6678'
         }
       },
       {
         name: ' ',
-        class: 'glyphicon glyphicon-plus',
+        class: 'btn-link glyphicon glyphicon-plus',
         value: 'delete'
+      },
+      {
+        name: '更新',
+        value: 'update'
       }
   ]
 }]
