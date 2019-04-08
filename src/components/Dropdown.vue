@@ -4,7 +4,7 @@
         <div class="form-group" v-if="filterable">
           <select class="form-control" v-model="value" @change="submit">
             <option value="">请选择</option>
-            <option v-for="(option, key) in options" :value="key">{{option.label||option}}</option>
+            <option v-for="(option, key) in options" :value="option.value">{{option.label}}</option>
           </select>
         </div>
         <div class="form-group" v-if="searchable">
