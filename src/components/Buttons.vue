@@ -30,5 +30,8 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped >
+.zkt-table-cell-buttons > button {
+  margin-right: 4px;
+}
 </style>

@@ -64,7 +64,7 @@ export default {
     setTimeout(() => {
         this.loading = false
         this.data = data
-      }, 3000)
+      }, 1000)
   }
 }
 </script>
