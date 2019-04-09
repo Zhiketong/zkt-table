@@ -1,7 +1,7 @@
 <template>
   <th class="table-header">
     {{header}}
-    <Sort v-if="sortable"  v-bind="$props" @sort="_onSort" />
+    <Sort v-if="sortable"  v-bind.sync="$props" @sort="_onSort" />
     <i :class="{'glyphicon':true,'glyphicon-filter':filterable,'glyphicon-search':searchable}"
      @click="showDropdown=!showDropdown"></i>
     <Tooltip v-if="query" :tip="query.label||query" @close:tooltip="$emit('search', name, '')" />
@@ -52,6 +52,10 @@
         default: false
       },
       searchQuery: {
+        type: String,
+        default: ''
+      },
+      sortQuery: {
         type: String,
         default: ''
       },

@@ -1,8 +1,8 @@
 <template>
   <i class="glyphicon" :class="{
-    'glyphicon-sort': dir=='',
-    'glyphicon-sort-by-attributes-alt': dir=='desc',
-    'glyphicon-sort-by-attributes': dir=='asc',
+    'glyphicon-sort': sortQuery=='',
+    'glyphicon-sort-by-attributes-alt': sortQuery=='desc',
+    'glyphicon-sort-by-attributes': sortQuery=='asc',
     }"
     @click="setDir">
   </i>
@@ -14,27 +14,29 @@
       field: {
         type: String,
         default: ''
-      }
+      },
     },
-    data () {
-      return {
-        dir: ''
+    props: {
+      sortQuery: {
+        type: String,
+        default: ''
       }
     },
     methods: {
       setDir () {
-        switch (this.dir) {
+        let dir = this.sortQuery
+        switch (this.sortQuery) {
           case '':
-            this.dir = 'asc';
+            dir = 'asc';
             break;
           case 'asc':
-            this.dir = 'desc';
+            dir = 'desc';
             break;
           case 'desc':
-            this.dir = ''
+            dir = ''
             break;
         }
-        this.$emit('sort', this.dir)
+        this.$emit('sort', dir)
       }
     }
   }

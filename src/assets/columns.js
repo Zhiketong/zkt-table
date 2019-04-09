@@ -6,6 +6,7 @@ export default [{
 }, {
   "name": "tel",
   "header": "电话",
+  "sortable": true,
   "searchable": true,
   "style": {
     "color": "#0f0"
