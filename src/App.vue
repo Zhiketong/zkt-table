@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <button class="btn btn-default" @click="params = {}">清除参数</button>
+        <button class="btn btn-default" @click="params = {};sortParams={}">清除参数</button>
       </div>
       <div class="panel-body">
         <Table
@@ -11,6 +11,7 @@
           :selectable="true"
           :loading="loading"
           :searchParams="params"
+          :sortParams="sortParams"
           ref="table"
           @sort="_onSort"
           @search="_onSearch"
@@ -40,6 +41,10 @@ export default {
       params: {
         tel: '156$$$$$1987',
         hobby: '234'
+      },
+      sortParams: {
+        name: 'asc',
+        tel: 'desc'
       }
     }
   },

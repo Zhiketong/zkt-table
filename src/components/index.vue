@@ -16,7 +16,9 @@
           v-bind="column"
           :key="index"
           :searchQuery="searchParams[column.name]"
+          :sortQuery="sortParams[column.name]"
           @search="onSearch"
+          @sort="onSort"
           />
       </tr>
     </thead>
@@ -85,6 +87,12 @@
           return {}
         }
       },
+      sortParams: {
+        type: Object,
+        default () {
+          return {}
+        }
+      },
       component: {
         type: String,
         default: 'Cell'
@@ -109,14 +117,16 @@
       onSearch (key, val) {
         this.searchParams[key] = val
         this.$forceUpdate()
+      },
+      onSort (key, val) {
+        this.sortParams[key] = val
+        this.$forceUpdate()
       }
     }
   }
 </script>
 
 <style>
-  .zkt-table {
-  }
   .zkt-table-head tr {
     background-color: #f2f2f2;
   }

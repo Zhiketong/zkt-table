@@ -55,6 +55,10 @@
         type: String,
         default: ''
       },
+      sortQuery: {
+        type: String,
+        default: ''
+      },
       options: {
         default () {
           return []
