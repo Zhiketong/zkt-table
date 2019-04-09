@@ -115,8 +115,6 @@
 </script>
 
 <style>
-  .zkt-table {
-  }
   .zkt-table-head tr {
     background-color: #f2f2f2;
   }
