@@ -45,4 +45,7 @@ export default {
 </script>
 
 <style lang="css">
+.zkt-table-cell{
+  word-break: break-all;
+}
 </style>
