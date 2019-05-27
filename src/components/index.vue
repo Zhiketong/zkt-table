@@ -13,7 +13,7 @@
           v-for="(column, index) in columns"
           v-if="column.name"
           v-on="$listeners"
-          v-bind="column"
+          v-bind="header(column)"
           :key="index"
           :searchQuery="searchParams[column.name]"
           :sortQuery="sortParams[column.name]"
@@ -56,6 +56,7 @@
   import Th from './Th.vue'
   import Buttons from './Buttons.vue'
   import Cell from './Cell.vue'
+  import omit from 'lodash.omit'
 
   export default {
     name: 'Table',
@@ -121,6 +122,9 @@
       onSort (key, val) {
         this.sortParams[key] = val
         this.$forceUpdate()
+      },
+      header (column) {
+        return omit(column, 'style', 'class')
       }
     }
   }

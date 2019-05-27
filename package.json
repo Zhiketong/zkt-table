@@ -11,6 +11,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "lodash.omit": "^4.5.0",
     "vue": "^2.5.0"
   },
   "browserslist": [
@@ -32,7 +33,7 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   },
-  "publishConfig" : {
-    "registry" : "http://npm.yin126.com:8081/repository/npm_dev/"
+  "publishConfig": {
+    "registry": "http://npm.yin126.com:8081/repository/npm_dev/"
   }
 }
