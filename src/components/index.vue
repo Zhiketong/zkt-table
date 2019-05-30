@@ -11,7 +11,7 @@
         </th>
         <Th
           v-for="(column, index) in columns"
-          v-if="column.name"
+          v-if="column.header"
           v-on="$listeners"
           v-bind="header(column)"
           :key="index"
