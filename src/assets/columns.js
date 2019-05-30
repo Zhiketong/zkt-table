@@ -40,7 +40,7 @@ export default [{
   // ]
 }, {
   "name": "actions",
-  "header": "操作",
+  "header": "",
   "component": "Buttons",
   "buttons": [
       {

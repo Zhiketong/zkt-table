@@ -1,6 +1,14 @@
 <template>
   <table class="table zkt-table">
     <thead class="zkt-table-head">
+      <tr v-if="beforeColumns">
+        <Th
+          v-for="(column, index) in beforeColumns"
+          v-if="column.header"
+          v-bind="header(column)"
+          :key="index"
+          />
+      </tr>
       <tr>
         <th v-if="selectable" width="30">
           <input
@@ -73,6 +81,12 @@
         }
       },
       columns: {
+        type: Array,
+        default () {
+          return []
+        }
+      },
+      beforeColumns: {
         type: Array,
         default () {
           return []

@@ -8,6 +8,7 @@
         <Table
           :data="data"
           :columns="columns"
+          :beforeColumns="beforeColumns"
           :selectable="true"
           :loading="loading"
           :searchParams="params"
@@ -26,6 +27,7 @@
 <script>
 import Table from './components'
 import columns from './assets/columns'
+import beforeColumns from './assets/beforeColumns'
 import data from './assets/data'
 
 export default {
@@ -37,6 +39,7 @@ export default {
     return {
       data: [], //require('./assets/data.json'),
       columns,
+      beforeColumns,
       loading: false,
       params: {
         tel: '156$$$$$1987',
