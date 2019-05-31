@@ -17,6 +17,7 @@ export default [{
 }, {
   "name": "hobby",
   "header": "爱好",
+  "merge": true,
   "filterable": true,
   "style": {
     "width": "150px"

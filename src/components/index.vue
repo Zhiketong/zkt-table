@@ -38,7 +38,12 @@
         <td v-if="selectable">
           <input type="checkbox" v-model="selectedItems" :value="row" @change="$emit('select', selectedItems)">
         </td>
-        <td v-for="(column,index) in columns" v-if="column.name" :key="index">
+        <td
+          v-for="(column,index) in columns"
+          v-if="column.name"
+          v-show="!column.merge"
+          :ref="column.merge&&('group'+row[column.name])"
+          :key="index">
           <component
             v-bind="column"
             v-on="$listeners"
@@ -129,6 +134,14 @@
         }
         this.$emit('select', this.selectedItems)
       },
+      mergeCell () {
+        Object.keys(this.$refs).forEach((key) => {
+          if (!~key.indexOf('group')) return
+          var firstEl = this.$refs[key][0]
+          firstEl.style.display = ''
+          firstEl.setAttribute('rowspan', this.$refs[key].length)
+        })
+      },
       onSearch (key, val) {
         this.searchParams[key] = val
         this.$forceUpdate()
@@ -140,6 +153,12 @@
       header (column) {
         return omit(column, 'style', 'class')
       }
+    },
+    mounted () {
+      this.mergeCell()
+    },
+    updated () {
+      this.mergeCell()
     }
   }
 </script>
